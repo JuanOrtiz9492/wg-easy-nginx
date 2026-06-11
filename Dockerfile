@@ -55,6 +55,7 @@ RUN chmod +x /usr/bin/awg /usr/bin/awg-quick
 
 # Install Linux packages
 RUN apk add --no-cache \
+    nginx \
     dpkg \
     dumb-init \
     iptables \
@@ -83,5 +84,6 @@ ENV DISABLE_IPV6=false
 
 LABEL org.opencontainers.image.source=https://github.com/wg-easy/wg-easy
 
-# Run Web UI
-CMD ["/usr/bin/dumb-init", "node", "server/index.mjs"]
+EXPOSE 80 ${PORT}
+# Run nginx + Web UI
+CMD ["/usr/bin/dumb-init", "sh", "-c", "nginx && node server/index.mjs"]

@@ -9,8 +9,7 @@ services:
     #  - HOST=0.0.0.0
     #  - INSECURE=false
 
-    image: wg-easy-nginx:latest
-    build: .
+    image: ghcr.io/juanortiz9492/wg-easy-nginx:latest
     container_name: wg-easy
     networks:
       wg:

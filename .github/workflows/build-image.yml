@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - nginx-reverse-proxy
   workflow_dispatch:
 
 jobs:
